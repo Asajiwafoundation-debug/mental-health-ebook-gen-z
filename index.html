@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Check: The Gen Z Way ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8A2BE2;
+            --secondary: #FF6EC7;
+            --accent: #00FFFF;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --yellow: #FFD700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cover {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .cover::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .cover h1 {
+            font-family: 'Comfortaa', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover .author {
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .toc {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .toc h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .toc h3::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin: 15px 0;
+            padding: 12px 20px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+        .toc li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .toc a i {
+            margin-right: 15px;
+            color: var(--primary);
+        }
+
+        .chapter {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .chapter h3 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .chapter h3::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+
+        .chapter p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(255,110,199,0.2) 0%, rgba(0,255,255,0.2) 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, rgba(138,43,226,0.1) 0%, rgba(255,110,199,0.1) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .tip-box::before {
+            content: "\f0eb";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-size: 1.2rem;
+        }
+
+        .interactive {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px dashed var(--primary);
+        }
+
+        .interactive:hover {
+            background: linear-gradient(135deg, rgba(138,43,226,0.1) 0%, rgba(255,110,199,0.1) 100%);
+            transform: scale(1.02);
+        }
+
+        .interactive h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .emoji-reaction {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .emoji-reaction:hover {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        @media (max-width: 768px) {
+            .cover h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cover h2 {
+                font-size: 1.4rem;
+            }
+            
+            .chapter {
+                padding: 25px;
+            }
+            
+            .chapter h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cover -->
+        <div class="cover">
+            <h1>Mental Health Check</h1>
+            <h2>The Gen Z Way ✨ Biar Gak Baper Terus!</h2>
+            <div class="author">
+                <i class="fas fa-heart"></i> Asa Jiwa Foundation <i class="fas fa-heart"></i>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>Daftar Isi 📚</h3>
+            <ul>
+                <li><a href="#chap1"><i class="fas fa-brain"></i> 1. Kenapa Mental Health Itu Penting? (Bukan Cuman Buat Pansos!)</a></li>
+                <li><a href="#chap2"><i class="fas fa-exclamation-triangle"></i> 2. Tanda-Tanda Mental Lagi Nggak Oke (Jangan Diabaikan, Bestie!)</a></li>
+                <li><a href="#chap3"><i class="fas fa-magic"></i> 3. Cara Ngatasin Stres yang Kekinian (Anti-Mager!)</a></li>
+                <li><a href="#chap4"><i class="fas fa-spa"></i> 4. Self-Care yang Beneran Works (Bukan Cuman Makan Ice Cream)</a></li>
+                <li><a href="#chap5"><i class="fas fa-comments"></i> 5. Ngobrolin Mental Health ke Orang Lain (Gak Perlu Malu, Gais!)</a></li>
+                <li><a href="#chap6"><i class="fas fa-user-md"></i> 6. Mencari Bantuan Profesional? Kenapa Nggak?</a></li>
+                <li><a href="#chap7"><i class="fas fa-mobile-alt"></i> 7. Tips Jaga Mental di Era Digital (Biarpun Salfok Terus)</a></li>
+                <li><a href="#chap8"><i class="fas fa-star"></i> 8. Inspirasi dari Tokoh-Tokoh yang Lolos dari Mental Health Issue</a></li>
+            </ul>
+        </div>
+
+        <!-- Chapter 1 -->
+        <div class="chapter" id="chap1">
+            <h3>1. Kenapa Mental Health Itu Penting? (Bukan Cuman Buat Pansos!)</h3>
+            <p>Hai, Gen Z! Gue tau sekarang lagi tren ngomongin <span class="highlight">mental health</span>. Tapi jangan salah, ini bukan cuman buat pansos di medsos atau biar kelihatan <span class="highlight">woke</span> aja! Mental health itu <span class="highlight">serius banget</span> dan berdampak langsung ke kualitas hidup kita.</p>
+            
+            <p>Pernah merasa <span class="highlight">capek</span> padahal nggak ngapa-ngapain? Atau tiba-tiba <span class="highlight">baper</span> lihat iklan susu? Itu tandanya mental health lagi butuh perhatian, bestie! Jangan dianggap remeh, soalnya mental yang sehat itu fondasi buat segala hal:</p>
+            
+            <div class="tip-box">
+                <strong>Fun Fact:</strong> Otak kita itu kayak smartphone. Kalau terus-terusan dipakai tanpa di-charge, pasti <span class="highlight">lowbat</span> dan akhirnya <span class="highlight">lemot</span>! Mental health itu charger buat otak kita.
+            </div>
+            
+            <p>Jadi, mulai sekarang, anggap mental health itu sama pentingnya dengan <span class="highlight"> skincare routine</span> atau <span class="highlight">diet</span> buat body goals. Karena apa gunanya body goals kalau mentalnya <span class="highlight">nangis di pojokan</span>? 🤷‍♀️</p>
+            
+            <div class="quote">
+                "Mental health bukan tujuan, tapi perjalanan. Dan setiap langkah kecil itu counts!"
+            </div>
+            
+            <div class="interactive" onclick="this.innerHTML='<h4>Coba deh perhatiin...</h4><p>Seberapa sering lo merasa capek secara emosional dalam seminggu terakhir?</p><p>Kalo sering, itu tandanya otak lo lagi butuh istirahat, bestie!</p>'">
+                <h4>Klik buat nge-check mental health meter lo! ✨</h4>
+                <p><i class="fas fa-hand-pointer"></i> Tekan sini dong!</p>
+            </div>
+        </div>
+
+        <!-- Chapter 2 -->
+        <div class="chapter" id="chap2">
+            <h3>2. Tanda-Tanda Mental Lagi Nggak Oke (Jangan Diabaikan, Bestie!)</h3>
+            <p>Kadang kita tuh <span class="highlight">blind</span> sama kondisi mental sendiri. Biar nggak kebablasan, yuk kenali tanda-tandanya!</p>
+            
+            <p><strong>1. Moodswing yang ekstrem</strong><br>
+            Pagi ceria banget, siang tiba-tiba <span class="highlight">ngambek</span> ke kucing, malem nangis nonton iklan. Kalau mood lo naik turun kayak roller coaster, itu warning sign!</p>
+            
+            <p><strong>2. Mager level akut</strong><br>
+            Biasanya semangat banget pergi, tiba-tiba jadi <span class="highlight">mager</span> keluar kamar. Bahkan buat mandi aja rasanya berat. Ini bukan malas biasa, tapi tanda energi mental lo lagi drop.</p>
+            
+            <p><strong>3. Suka overthinking</strong><br>
+            Dikasih komen "bagus" aja bisa jadi <span class="highlight">salfok</span> dan mikir "apa dia beneran suka atau nggak?". Kalau otak lo jadi <span class="highlight">anxiety mode</span> terus, waspada!</p>
+            
+            <div class="tip-box">
+                <strong>Heads up!</strong> Mental health issue itu nggak kelihatan fisiknya. Jadi jangan judge orang dari luar aja!
+            </div>
+            
+            <p><strong>4. Nafsu makan nggak karuan</strong><br>
+            Bisa jadi <span class="highlight">laper</span> terus sampe makan 3 porsi, atau malah <span class="highlight">ilfeel</span> lihat makanan. Perubahan drastis ini patut diwaspadai!</p>
+            
+            <p><strong>5. Sulit tidur</strong><br>
+            Mata ngantuk tapi otak <span class="highlight">on</span> terus. Biasanya jam 2 pagi baru bisa tidur, padahal besok ada kelas jam 7. Ini tanda stres mulai mengganggu!</p>
+            
+            <div class="interactive" onclick="this.innerHTML='<h4>Self-check time!</h4><p>Dari 5 tanda di atas, berapa yang lo rasakan dalam seminggu terakhir?</p><p>Kalo lebih dari 3, maybe it\'s time to take a break!</p>'">
+                <h4>Coba hitung-hitung... 🧮</h4>
+                <p><i class="fas fa-calculator"></i> Klik buat self-check!</p>
+            </div>
+        </div>
+
+        <!-- Chapter 3 -->
+        <div class="chapter" id="chap3">
+            <h3>3. Cara Ngatasin Stres yang Kekinian (Anti-Mager!)</h3>
+            <p>Stres itu kayak <span class="highlight">viral TikTok</span>, datangnya tiba-tiba dan bikin kita <span class="highlight">gemes</span>. Tapi jangan khawatir, ada cara ngatasin yang <span class="highlight">kekinian</span> dan anti-mager!</p>
+            
+            <p><strong>1. Digital Detox (tapi yang asik)</strong><br>
+            Matihin HP selama 1 jam, tapi ganti dengan kegiatan yang <span class="highlight">fun</span>! Misalnya main puzzle, dengerin vinyl, atau <span class="highlight">coret-coret</span> di buku harian. Jangan sampe jadi <span class="highlight">salfok</span> terus!</p>
+            
+            <p><strong>2. "Me Time" yang produktif</strong><br>
+            Bukan cuma rebahan, tapi coba hal baru yang bikin <span class="highlight">dopamin</span> naik! Misalnya masak resep viral, bikin konten, atau <span class="highlight">belajar dance TikTok</span>. Yang penting bikin lupa waktu!</p>
+            
+            <div class="tip-box">
+                <strong>Pro tip:</strong> Stres itu kayak debu di HP. Mesti dibersihin rutin biar nggak numpuk dan bikin <span class="highlight">lemot</span>!
+            </div>
+            
+            <p><strong>3. Move Your Body (tapi yang asyik)</strong><br>
+            Olahraga nggak harus ke gym! Coba <span class="highlight">skateboard</span>, main basket sama temen, atau <span class="highlight">jalan-jalan</span> sambil dengerin podcast. Yang penting badan bergerak dan <span class="highlight">keringetan</span> dikit!</p>
+            
+            <p><strong>4. "Therapy" ala Gen Z</strong><br>
+            Curhat ke AI, nulis di notes, atau <span class="highlight">buat playlist</span> yang nge-representasiin perasaan lo. Kadang kita cuma butuh <span class="highlight">vent</span> tanpa di-judge!</p>
+            
+            <div class="quote">
+                "Stres itu seperti musik. Kadang kita butuh volume keras, tapi kadang juga butuh yang slow dan relaxing."
+            </div>
+            
+            <div class="interactive" onclick="this.innerHTML='<h4>Stress buster challenge!</h4><p>Pilih salah satu cara di atas dan coba selama 3 hari berturut-turut.</p><p>Liat sendiri deh bedanya! 😉</p>'">
+                <h4>Mau coba yang mana? 🤔</h4>
+                <p><i class="fas fa-dice"></i> Klik buat dapet challenge!</p>
+            </div>
+        </div>
+
+        <!-- Chapter 4 -->
+        <div class="chapter" id="chap4">
+            <h3>4. Self-Care yang Beneran Works (Bukan Cuman Makan Ice Cream)</h3>
+            <p>Self-care itu bukan cuman <span class="highlight">makan ice cream</span> pas galau atau <span class="highlight">belanja online</span> biar happy. Itu cumu <span class="highlight">band-aid solution</span>! Self-care yang bener itu lebih dari itu:</p>
+            
+            <p><strong>1. Set Boundaries yang jelas</strong><br>
+            Belajar bilang <span class="highlight">"nggak"</span> tanpa rasa bersalah. Kalau temen ngajak makan tapi lo lagi capek, bilang aja "maaf, kali ini aku mau istirahat dulu". Itu bukan egois, tapi <span class="highlight">self-love</span>!</p>
+            
+            <p><strong>2. Quality Sleep (bukan cuma quantity)</strong><br>
+            Tidur 8 jam nggak cukup kalo tidurnya <span class="highlight">nggak nyenyak</span>. Coba <span class="highlight">sleep ritual</span>: matikan HP 1 jam sebelum tidur, minum susu hangat, atau dengerin <span class="highlight">white noise</span>. Biar mimpi indah dan bangunnya <span class="highlight">fresh</span>!</p>
+            
+            <div class="tip-box">
+                <strong>Remember:</strong> Self-care itu investasi jangka panjang. Bukan instant noodles yang cuma 5 menit!
+            </div>
+            
+            <p><strong>3. Connect with Nature</strong><br>
+            Pergi ke taman, naik gunung, atau sekadar <span class="highlight">duduk di balkon</span> sambil lihat langit. Alam punya <span class="highlight">healing power</span> yang luar biasa dan bikin kita <span class="highlight">grounded</span> lagi.</p>
+            
+            <p><strong>4. "Unfollow" yang toxic</strong><br>
+            Nggak cuma di medsos, tapi juga di kehidupan nyata! <span class="highlight">Unfollow</span> temen yang suka <span class="highlight">ghibah</span>, <span class="highlight">unfriend</span> yang suka nyakitin, atau <span class="highlight">mute</span> yang bikin energi lo drop. Life's too short for toxic people!</p>
+            
+            <div class="interactive" onclick="this.innerHTML='<h4>Self-care checklist!</h4><p>✓ Tidur cukup<br>✓ Makan makanan bergizi<br>✓ Minum air putih 8 gelas<br>✓ Olahraga 30 menit<br>✓ Me time 1 jam<br>✓ Bilang "nggak" ketika perlu</p><p>Udah berapa yang lo lakukan hari ini?</p>'">
+                <h4>Check self-care meter lo! 📊</h4>
+                <p><i class="fas fa-clipboard-check"></i> Klik buat lihat checklist!</p>
+            </div>
+        </div>
+
+        <!-- Chapter 5 -->
+        <div class="chapter" id="chap5">
+            <h3>5. Ngobrolin Mental Health ke Orang Lain (Gak Perlu Malu, Gais!)</h3>
+            <p>Ngebahas mental health itu masih <span class="highlight">tabu</span> di banyak tempat. Tapi kita Gen Z harus <span class="highlight">break the stigma</span>! Caranya:</p>
+            
+            <p><strong>1. Mulai dari "Safe Space"</strong><br>
+            Cari temen atau keluarga yang <span class="highlight">nggak judgmental</span>. Mulai dengan bahasa yang ringan: "Aku lagi merasa nggak enak badan, tapi bukan fisik. Lebih ke perasaan."</p>
+            
+            <p><strong>2. Pakai "I" Statement</strong><br>
+            Daripada bilang "Kamu bikin aku stres", coba "Aku merasa stres ketika...". Ini biar nggak terdengar <span class="highlight">menyalahkan</span> dan orang lain lebih <span class="highlight">open</span> buat dengerin.</p>
+
+          <div class="tip-box">
+                <strong>Fun fact:</strong> Orang yang ngobrolin masalahnya itu 50% lebih cepet sembuh daripada yang dipendam sendiri!
+            </div>
+            
+            <p><strong>3. Edukasi dengan Cara Asik</strong><br>
+            Share artikel lucu tentang mental health, atau ajak nonton film yang bahas topik ini. Biar nggak <span class="highlight">kaku</span> dan jadi obrolan yang natural.</p>
+            
+            <p><strong>4. Jadwalkan "Mental Health Check"</strong><br>
+            Sama kayak kita rutin cek fisik ke dokter, coba rutin juga ngecek mental health sama teman dekat: "Hari ini gimana? Ada yang pengin di-share nggak?"</p>
+            
+            <div class="quote">
+                "Talking about mental health doesn't make you weak. It makes you stronger than those who stay silent."
+            </div>
+            
+            <div class="interactive" onclick="this.innerHTML='<h4>Conversation starter!</h4><p>Coba tanya ke temen: "Terakhir kali kamu merasa benar-benar tenang itu kapan?"</p><p>Liat aja deh, obrolan bisa jadi lebih dalam!</p>'">
+                <h4>Mau coba ngobrol? 💬</h4>
+                <p><i class="fas fa-comment-dots"></i> Klik buat dapet ide!</p>
+            </div>
+        </div>
+
+      <!-- Chapter 6 -->
+        <div class="chapter" id="chap6">
+            <h3>6. Mencari Bantuan Profesional? Kenapa Nggak?</h3>
+            <p>Masih banyak yang berpikir <span class="highlight">"ke psikolog itu buat orang gila"</span>. HELLOOO! Itu mitos yang udah <span class="highlight">outdated</span> banget! Psikolog itu kayak <span class="highlight">personal trainer</span> buat otak kita.</p>
+            
+            <p><strong>Kenapa perlu bantuan profesional?</strong><br>
+            - Mereka punya <span class="highlight">tools</span> dan metode yang terbukti works<br>
+            - Nggak ada <span class="highlight">judgment</span> karena mereka profesional<br>
+            - Bisa kasih <span class="highlight">perspektif baru</span> yang kita nggak pikirin<br>
+            - Membantu kita <span class="highlight">understand root cause</span> dari masalah</p>
+            
+            <div class="tip-box">
+                <strong>Reality check:</strong> Orang sukses seperti Bill Gates, Oprah, bahkan Justin Bieber pernah pakai jasa psikolog. Itu bukti bahwa caring for your mental health is cool!
+            </div>
+            
+            <p><strong>Tips cari psikolog yang cocok:</strong><br>
+            1. Cari yang <span class="highlight">spesialisasinya sesuai</span> masalah lo<br>
+            2. Baca review atau <span class="highlight">testimoni</span> dari pasien lain<br>
+            3. Jangan takut <span class="highlight">"shop around"</span> - cobain beberapa dulu<br>
+            4. Pastikan <span class="highlight">chemistry</span> antara lo dan psikolognya oke</p>
+            
+            <p><strong>Alternatif lain:</strong><br>
+            Kalau masih <span class="highlight">malu</span> atau budget terbatas, coba:<br>
+            - <span class="highlight">Online therapy</span> (lebih fleksibel dan anonim)<br>
+            - <span class="highlight">Support group</span> (bisa online atau offline)<br>
+            - <span class="highlight">Mental health apps</span> (ada yang gratis dan bermanfaat)</p>
+            
+            <div class="interactive" onclick="this.innerHTML='<h4>Profesional help is NOT a weakness!</h4><p>Itu adalah tanda bahwa lo cukup sayang sama diri sendiri buat cari bantuan ketika needed.</p><p>Be proud of yourself! 💪</p>'">
+                <h4>Still hesitant? 🤔</h4>
+                <p><i class="fas fa-hand-holding-heart"></i> Klik buat reminder!</p>
+            </div>
+        </div>
+<!-- Chapter 7 -->
+        <div class="chapter" id="chap7">
+            <h3>7. Tips Jaga Mental di Era Digital (Biarpun Salfok Terus)</h3>
+            <p>Kita hidup di era dimana <span class="highlight">FOMO</span> itu real dan <span class="highlight">social media</span> bisa bikin kita <span class="highlight">insecure</span>. Tapi jangan khawatir, ada cara jaga mental tanpa harus <span class="highlight">delete semua akun</span>!</p>
+            
+            <p><strong>1. Curate Your Feed</strong><br>
+            Unfollow akun yang bikin <span class="highlight">nggak nyaman</span> atau <span class="highlight">trigger</span>. Follow akun yang <span class="highlight">inspiring</span>, <span class="highlight">educational</span>, atau yang bikin <span class="highlight">ketawa</span>. Remember, you are what you follow!</p>
+            
+            <p><strong>2. Set "Digital Sunset"</strong><br>
+            Matikan semua gadget 1 jam sebelum tidur. Ganti dengan <span class="highlight">kegiatan analog</span>: baca buku, tulis diary, atau <span class="highlight">ngobrol</span> sama keluarga. Biar mata dan otak <span class="highlight">istirahat</span> dari blue light.</p>
+            
+            <div class="tip-box">
+                <strong>Did you know?</strong> Blue light dari HP bisa mengganggu produksi melatonin (hormon tidur). Jadi kalau sering main HP sebelum tidur, jangan heran kalau jadi <span class="highlight">insomnia</span>!
+            </div>
+            
+            <p><strong>3. Practice "JOMO" (Joy Of Missing Out)</strong><br>
+            Daripada <span class="highlight">FOMO</span>, coba <span class="highlight">JOMO</span> - senang ketika melewatkan sesuatu. Nggak harus ikut setiap tren atau event. Kadang <span class="highlight">me time</span> di rumah itu lebih <span class="highlight">healing</span>!</p>
+            
+            <p><strong>4. Turn Off Notifications</strong><br>
+            Notifikasi itu <span class="highlight">distraction</span> terbesar! Matikan notifikasi untuk apps yang nggak penting. Biar fokus dan nggak <span class="highlight">salfok</span> terus sama HP.</p>
+            
+            <div class="quote">
+                "In digital age, the most important skill is knowing when to disconnect."
+            </div>
+            
+            <div class="interactive" onclick="this.innerHTML='<h4>Digital detox challenge!</h4><p>Coba matikan HP selama 3 jam hari ini.</p><p>Lakukan sesuatu yang produktif atau fun tanpa gadget!</p>'">
+                <h4>Brave enough to try? 🚀</h4>
+                <p><i class="fas fa-mobile-alt"></i> <i class="fas fa-ban"></i> Klik buat ambil challenge!</p>
+            </div>
+        </div>
+
+        <!-- Chapter 8 -->
+        <div class="chapter" id="chap8">
+            <h3>8. Inspirasi dari Tokoh-Tokoh yang Lolos dari Mental Health Issue</h3>
+            <p>Kadang kita butuh <span class="highlight">role model</span> yang relate banget sama kita. Ini beberapa tokoh yang <span class="highlight">berani speak up</span> tentang mental health dan jadi inspirasi:</p>
+            
+            <p><strong>1. Billie Eilish</strong><br>
+            Penyanyi muda ini nggak pernah segan <span class="highlight">share</span> tentang pengalamannya dengan <span class="highlight">depression</span> dan <span class="highlight">body dysmorphia</span>. Dia ngajak kita untuk <span class="highlight">accept yourself</span> apa adanya.</p>
+            
+            <p><strong>2. Ryan Reynolds</strong><br>
+            Aktor yang selalu <span class="highlight">kelihatan fun</span> ini ternyata struggle dengan <span class="highlight">anxiety</span>. Dia bilang bahwa <span class="highlight">asking for help</span> adalah tanda <span class="highlight">strength</span>, bukan weakness.</p>
+            
+            <div class="tip-box">
+                <strong>Inspirational quote:</strong> "Your mental health is a priority. Your happiness is essential. Your self-care is a necessity." - Unknown
+            </div>
+
+          <p><strong>3. Naomi Osaka</strong><br>
+            Petenis nomor 1 dunia ini <span class="highlight">berani mundur</span> dari French Open demi jaga mental health. Dia buktiin bahwa <span class="highlight">success</span> nggak harus dengan <span class="highlight">mengorbankan kesehatan mental</span>.</p>
+            
+            <p><strong>4. Local Hero: Gita Savitri</strong><br>
+            Content creator ini sering <span class="highlight">ngobrolin</span> tentang mental health dengan cara yang <span class="highlight">relatable</span> dan nggak <span class="highlight">cringe</span>. Dia ngajak Gen Z untuk <span class="highlight">normalisasi</span> ngobrolin masalah mental.</p>
+            
+            <div class="quote">
+                "Mental health is not a destination, but a process. It's about how you drive, not where you're going." - Noam Shpancer
+            </div>
+            
+            <div class="interactive" onclick="this.innerHTML='<h4>You can be the next inspiration!</h4><p>Dengan mulai care untuk mental health lo sendiri, lo udah jadi inspirasi buat orang lain.</p><p>Keep going, bestie! 💜</p>'">
+                <h4>Feeling inspired? ✨</h4>
+                <p><i class="fas fa-star"></i> Klik buat reminder!</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>E-book ini dibuat dengan <i class="fas fa-heart"></i> oleh Asa Jiwa Foundation</p>
+            <p>Untuk informasi lebih lanjut, kunjungi <a href="#">www.asajiuafoundation.org</a></p>
+            <p>Share e-book ini ke temen-temen lo! Biar makin banyak yang #SadariMental</p>
+            
+            <div style="margin-top: 20px;">
+                <span class="emoji-reaction" onclick="alert('Thanks for the love! 💜')">💜</span>
+                <span class="emoji-reaction" onclick="alert('You got this! 💪')">💪</span>
+                <span class="emoji-reaction" onclick="alert('Stay strong! ✨')">✨</span>
+                <span class="emoji-reaction" onclick="alert('We believe in you! 🌟')">🌟</span>
+            </div>
+        </div>
+    </div>
+  
+        <script>
+        // Smooth scrolling untuk navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Efek parallax sederhana untuk cover
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const cover = document.querySelector('.cover');
+            cover.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+
+        // Animasi fade in untuk chapter
+        const chapters = document.querySelectorAll('.chapter');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        chapters.forEach(chapter => {
+            chapter.style.opacity = 0;
+            chapter.style.transform = 'translateY(20px)';
+            chapter.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(chapter);
+        });
+    </script>
+</body>
+</html>
